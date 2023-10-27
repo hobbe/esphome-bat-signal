@@ -1,0 +1,83 @@
+substitutions:
+  name: bat-signal
+  friendly_name: Bat Signal
+  red_led_pin: D2
+  red_led_power: 100%
+  green_led_pin: D3
+  green_led_power: 50%
+  blue_led_pin: D4
+  blue_led_power: 100%
+
+esphome:
+  name: ${name}
+  friendly_name: ${friendly_name}
+  name_add_mac_suffix: true
+  project:
+    name: hobbe.bat-signal
+    version: "1.0"
+
+esp8266:
+  board: d1_mini
+
+logger:
+  level: WARN
+  baud_rate: 0
+  esp8266_store_log_strings_in_flash: false
+
+api:
+
+ota:
+
+wifi:
+  ap:
+    ssid: "${friendly_name} Hotspot"
+
+captive_portal:
+
+web_server:
+  log: false
+
+dashboard_import:
+  package_import_url: github://hobbe/esphome-bat-signal/bat-signal.yaml
+  import_full_config: false
+
+binary_sensor:
+  platform: status
+  name: "Status"
+
+button:
+  - platform: restart
+    name: "Reboot"
+
+light:
+  - platform: rgb
+    id: "led"
+    name: "LED"
+    red: rgb_r
+    green: rgb_g
+    blue: rgb_b
+    restore_mode: RESTORE_DEFAULT_ON
+    effects:
+      - flicker:
+      - pulse:
+
+output:
+  - platform: esp8266_pwm
+    id: rgb_r
+    pin: ${red_led_pin}
+    max_power: ${red_led_power}
+  - platform: esp8266_pwm
+    id: rgb_g
+    pin: ${green_led_pin}
+    max_power: ${green_led_power}
+  - platform: esp8266_pwm
+    id: rgb_b
+    pin: ${blue_led_pin}
+    max_power: ${blue_led_power}
+
+text_sensor:
+  - platform: wifi_info
+    ip_address:
+      name: "IP"
+    mac_address:
+      name: "MAC"
