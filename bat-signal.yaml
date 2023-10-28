@@ -38,7 +38,7 @@ web_server:
   log: false
 
 dashboard_import:
-  package_import_url: github://hobbe/esphome-bat-signal/bat-signal.yaml
+  package_import_url: github://hobbe/esphome-bat-signal/bat-signal.yaml@main
   import_full_config: false
 
 binary_sensor:
@@ -79,5 +79,11 @@ text_sensor:
   - platform: wifi_info
     ip_address:
       name: "IP"
+      icon: mdi:ip-network
+      disabled_by_default: true
     mac_address:
       name: "MAC"
+      icon: mdi:network
+      disabled_by_default: true
+      filters:
+        to_upper:
