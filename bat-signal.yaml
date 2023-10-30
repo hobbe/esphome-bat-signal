@@ -1,6 +1,6 @@
 substitutions:
   name: bat-signal
-  friendly_name: Bat Signal
+  friendly_name: Bat-Signal
   red_led_pin: D6
   red_led_power: 100%
   green_led_pin: D7
@@ -12,9 +12,11 @@ esphome:
   name: ${name}
   friendly_name: ${friendly_name}
   name_add_mac_suffix: true
+  comment: Bat-Signal Light Controller
+  min_version: 2023.10.1
   project:
     name: hobbe.bat-signal
-    version: "1.1"
+    version: "1.2"
 
 esp8266:
   board: d1_mini
