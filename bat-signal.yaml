@@ -7,7 +7,7 @@ esphome:
   friendly_name: ${friendly_name}
   name_add_mac_suffix: true
   comment: Bat-Signal Light Controller
-  min_version: 2023.10.1
+  min_version: 2023.10.0
   project:
     name: hobbe.bat-signal
     version: "2.0"
@@ -108,7 +108,7 @@ light:
       - addressable_rainbow:
           speed: 25
           width: 12
-      - random
+      - random:
 
 text_sensor:
   - platform: wifi_info
