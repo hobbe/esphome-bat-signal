@@ -3,7 +3,7 @@
 ## Material
 
 - Wemos D1 mini
-- RGD LED
+- RGD 12-bit LED ring (WS2812)
 
 ## Software
 
@@ -16,12 +16,6 @@
 substitutions:
   name: bat-signal
   friendly_name: Bat-Signal
-  red_led_pin: D6
-  red_led_power: 100%
-  green_led_pin: D7
-  green_led_power: 50%
-  blue_led_pin: D8
-  blue_led_power: 80%
 packages:
   hobbe.bat-signal: github://hobbe/esphome-bat-signal/bat-signal.yaml@main
 esphome:
