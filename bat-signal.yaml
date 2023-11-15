@@ -7,10 +7,10 @@ esphome:
   friendly_name: ${friendly_name}
   name_add_mac_suffix: true
   comment: Bat-Signal Light Controller
-  min_version: 2023.10.0
+  min_version: 2023.11.0
   project:
-    name: hobbe.bat-signal
-    version: "2.0"
+    name: hobbe.Bat-Signal
+    version: "2.1"
   on_boot:
     then:
       - light.turn_on:
@@ -63,25 +63,10 @@ light:
     variant: WS2812
     pin: GPIO03
     num_leds: 12
-    name: ${friendly_name}
+    name: Light
     effects:
-      - strobe:
-          name: Bat-Signal 1
-          colors:
-            - state: true
-              brightness: 100%
-              red: 100%
-              green: 75%
-              blue: 30%
-              duration: 10000ms
-            - state: true
-              brightness: 100%
-              red: 100%
-              green: 75%
-              blue: 30%
-              duration: 10000ms
       - addressable_color_wipe:
-          name: Bat-Signal 2
+          name: Wipe
           colors:
             - red: 100%
               green: 75%
@@ -91,18 +76,6 @@ light:
               green: 0%
               blue: 0%
               num_leds: 3
-          add_led_interval: 100ms
-      - addressable_color_wipe:
-          name: Bat-Signal 3
-          colors:
-            - red: 100%
-              green: 75%
-              blue: 20%
-              num_leds: 2
-            - red: 0%
-              green: 0%
-              blue: 0%
-              num_leds: 2
           add_led_interval: 100ms
       - pulse:
       - addressable_rainbow:
