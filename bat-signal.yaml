@@ -9,7 +9,7 @@ esphome:
   comment: Bat-Signal Light Controller
   min_version: 2023.11.0
   project:
-    name: hobbe.bat-signal
+    name: hobbe.Bat-Signal
     version: "2.1"
   on_boot:
     then:
