@@ -1,5 +1,5 @@
 name: Build Firmware
-run-name: ${{ github.actor }} is building the firmware
+run-name: Build the firmware
 on: [push]
 
 jobs:
@@ -17,6 +17,7 @@ jobs:
           version: latest
       - run: |
           mkdir output
+          mv "${{ steps.esphome-build.outputs.name }}" output/
       - uses: actions/upload-artifact@v3
         with:
           name: ${{ steps.esphome-build.outputs.name }}
