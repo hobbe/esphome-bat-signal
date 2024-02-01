@@ -1,5 +1,5 @@
 name: Build Firmware
-run-name: ${{ github.actor }} is building firmware 🚀
+run-name: ${{ github.actor }} is building the firmware
 on: [push]
 
 jobs:
