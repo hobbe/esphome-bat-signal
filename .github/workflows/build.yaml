@@ -15,10 +15,7 @@ jobs:
         with:
           yaml_file: ./bat-signal.yaml
           version: latest
-      - run: |
-          mkdir output
-          mv "${{ steps.esphome-build.outputs.name }}" output/
       - uses: actions/upload-artifact@v3
         with:
-          name: ${{ inputs.name }}
+          name: ${{ steps.esphome-build.outputs.name }}
           path: output
