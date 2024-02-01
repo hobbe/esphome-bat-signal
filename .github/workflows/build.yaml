@@ -10,7 +10,7 @@ jobs:
       esphome-version: latest
     steps:
       - uses: actions/checkout@v4
-      - uses: esphome/build-action@v1.8
+      - uses: esphome/build-action@v1.8.0
         id: esphome-build
         with:
           yaml_file: ./bat-signal.yaml
