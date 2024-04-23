@@ -10,7 +10,7 @@ esphome:
   min_version: 2023.11.0
   project:
     name: hobbe.Bat-Signal
-    version: "2.2"
+    version: "2.3"
   on_boot:
     then:
       - light.turn_on:
@@ -82,6 +82,11 @@ light:
           speed: 25
           width: 12
       - random:
+
+sensor:
+  - platform: uptime
+    name: Uptime
+    disabled_by_default: true
 
 text_sensor:
   - platform: wifi_info
