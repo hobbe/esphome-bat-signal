@@ -1,5 +1,5 @@
 name: Release
-run-name: Release version {{ inputs.version }} of the firmware
+run-name: Release version ${{ inputs.version }} of the firmware
 
 on:
   # push:
@@ -15,6 +15,7 @@ on:
         description: Release version (eg. v2.5).
         required: true
         type: string
+        default: v2.x
 
 jobs:
   build:
