@@ -50,8 +50,10 @@ jobs:
         with:
           name: ${{ inputs.name }}
       - run: |
+          pwd
           ls -la .
           zip -r "${{ inputs.name }}.zip" bat-signal-esp8266
+          ls -la .
       - uses: "marvinpinto/action-automatic-releases@v1.2.1"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
@@ -59,5 +61,5 @@ jobs:
           prerelease: true
           title: "Development Build"
           files: |
-            # "${{ steps.download-release.outputs.download-path }}/${{ inputs.name }}"
+            ./${{ steps.download-release.outputs.download-path }}/${{ inputs.name }}
             ./${{ inputs.name }}.zip
