@@ -61,4 +61,4 @@ jobs:
           prerelease: true
           title: "Development Build"
           files: |
-            "${{ steps.download-release.outputs.download-path }}/${{ inputs.name }}.zip"
+            "${{ steps.download-release.outputs.download-path }}/${{ inputs.name }}"
