@@ -38,7 +38,7 @@ jobs:
           name: ${{ inputs.name }}
           path: output
   release:
-    name: Create release {{ inputs.version }} for firmware
+    name: Create release ${{ inputs.version }} for firmware
     runs-on: ubuntu-latest
     needs: [build]
     steps:
