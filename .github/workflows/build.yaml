@@ -1,6 +1,8 @@
 name: Build Firmware
 run-name: Build the firmware
-on: [push]
+on:
+  push:
+    branches: [ "main" ]
 
 jobs:
   build:
