@@ -50,8 +50,8 @@ jobs:
         with:
           name: ${{ inputs.name }}
       - run: |
-          ls .
-          cp "${{ inputs.name }}" "${{ inputs.name }}.zip"
+          ls -la .
+          cp "bat-signal-esp8266" "${{ inputs.name }}.zip"
       - uses: "marvinpinto/action-automatic-releases@v1.2.1"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
