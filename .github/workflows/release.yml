@@ -1,0 +1,56 @@
+name: Release
+run-name: Release version {{ inputs.version }} of the firmware
+
+on:
+  # push:
+  #   branches: [ "main" ]
+  workflow_dispatch:
+    inputs:
+      name:
+        description: Name of the firmware to publish.
+        required: false
+        type: string
+        default: Bat-Signal
+      version:
+        description: Release version (eg. v2.5).
+        required: true
+        type: string
+
+jobs:
+  build:
+    name: Build binary firmware
+    runs-on: ubuntu-latest
+    outputs:
+      esphome-version: latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: esphome/build-action@v2.0.0
+        id: esphome-build
+        with:
+          yaml_file: ./bat-signal.yaml
+          version: latest
+      - run: |
+          mkdir output
+          mv "${{ steps.esphome-build.outputs.name }}" output/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.name }}
+          path: output
+  release:
+    name: Create release {{ inputs.version }} for firmware
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.name }}
+          path: output
+      - uses: "marvinpinto/action-automatic-releases@1.2.1"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Development Build"
+          files: |
+            output/${{ inputs.name }}
