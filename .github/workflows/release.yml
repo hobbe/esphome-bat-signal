@@ -24,7 +24,7 @@ jobs:
     outputs:
       esphome-version: latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: esphome/build-action@v7.0.0
         id: esphome-build
         with:
@@ -44,7 +44,7 @@ jobs:
     needs: [build]
     permissions: write-all
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: actions/download-artifact@v5
         id: download-release
         with:
