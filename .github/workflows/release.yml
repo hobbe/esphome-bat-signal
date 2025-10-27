@@ -33,7 +33,7 @@ jobs:
       - run: |
           mkdir output
           mv "${{ steps.esphome-build.outputs.name }}" output/
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         id: upload-build
         with:
           name: ${{ inputs.name }}
