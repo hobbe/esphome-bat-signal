@@ -24,8 +24,8 @@ jobs:
     outputs:
       esphome-version: latest
     steps:
-      - uses: actions/checkout@v6
-      - uses: esphome/build-action@v7.1.0
+      - uses: actions/checkout@v7
+      - uses: esphome/build-action@v8.1.0
         id: esphome-build
         with:
           yaml-file: ./bat-signal.yaml
@@ -44,7 +44,7 @@ jobs:
     needs: [build]
     permissions: write-all
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: actions/download-artifact@v8
         id: download-release
         with:
