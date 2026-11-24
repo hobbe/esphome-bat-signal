@@ -8,10 +8,10 @@ esphome:
   friendly_name: ${friendly_name}
   name_add_mac_suffix: true
   comment: Bat-Signal Light Controller
-  min_version: 2024.6.0
+  min_version: 2026.11.0
   project:
     name: hobbe.Bat-Signal
-    version: "2.4"
+    version: "2.5"
   on_boot:
     then:
       - light.turn_on:
@@ -27,12 +27,11 @@ esp8266:
 logger:
   level: WARN
   baud_rate: 0
-  esp8266_store_log_strings_in_flash: false
 
 api:
 
 ota:
-  platform: esphome
+  - platform: esphome
 
 wifi:
   ap:
