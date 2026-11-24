@@ -2,6 +2,7 @@ substitutions:
   name: bat-signal
   friendly_name: Bat-Signal
   pin_ws2812: GPIO03
+  api_encryption_key:
 
 esphome:
   name: ${name}
